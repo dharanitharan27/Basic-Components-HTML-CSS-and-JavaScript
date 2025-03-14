@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Password Generator</h2>
+      <div class="result-container">
+        <span id="result"></span>
+        <button class="btn" id="clipboard">Save</button>
+      </div>
+      <div class="settings">
+        <div class="setting">
+          <label>Length</label>
+          <input type="number" id="length" min="4" max="20" value="20">
+        </div>
+        <div class="setting">
+          <label>Uppercase</label>
+          <input type="checkbox" id="uppercase" checked>
+        </div>
+        <div class="setting">
+          <label>Lowercase</label>
+          <input type="checkbox" id="lowercase" checked>
+        </div>
+        <div class="setting">
+          <label>Numbers</label>
+          <input type="checkbox" id="numbers" checked>
+        </div>
+        <div class="setting">
+          <label>Symbols</label>
+          <input type="checkbox" id="symbols" checked>
+        </div>
+      </div>
+      <button class="btn btn-large" id="generate">Generate</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
