@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --clock-border: #2c3e50;
+  --clock-background: #f0f3f6;
+}
+
+html {
+  transition: all 0.5s ease-in;
+}
+
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #1a1a1a;
+  --clock-border: #30475e;
+  --clock-background: #222831;
+}
+
+html.dark {
+  background-color: #121212;
+  color: var(--primary-color);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background: 
+    linear-gradient(135deg, rgba(32, 32, 32, 0.8) 25%, transparent 25%) -10px 0,
+    linear-gradient(225deg, rgba(32, 32, 32, 0.8) 25%, transparent 25%) -10px 0,
+    linear-gradient(315deg, rgba(32, 32, 32, 0.8) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(32, 32, 32, 0.8) 25%, transparent 25%);
+  background-color: #1a1a1a;
+  background-size: 20px 20px;
+}
+
+.toggle {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 50px;
+  padding: 12px 24px;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.toggle:active {
+  transform: translateY(0);
+}
+
+.toggle:focus {
+  outline: none;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clock {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-color: var(--clock-background);
+  border-radius: 50%;
+  border: 14px solid var(--clock-border);
+  box-shadow: 
+    inset 0 0 30px rgba(0,0,0,0.1),
+    0 20px 25px -5px rgba(0,0,0,0.1),
+    0 10px 10px -5px rgba(0,0,0,0.04);
+  margin-bottom: 30px;
+}
+
+.clock::before {
+  content: '';
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  top: 2.5%;
+  left: 2.5%;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(0,0,0,0.1);
+}
+
+/* Clock Numbers */
+.number {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rotation));
+  font-size: 1.2rem;
+  padding: 18px;
+  color: var(--primary-color);
+}
+
+.number-1 { --rotation: 30deg; }
+.number-2 { --rotation: 60deg; }
+.number-3 { --rotation: 90deg; }
+.number-4 { --rotation: 120deg; }
+.number-5 { --rotation: 150deg; }
+.number-6 { --rotation: 180deg; }
+.number-7 { --rotation: 210deg; }
+.number-8 { --rotation: 240deg; }
+.number-9 { --rotation: 270deg; }
+.number-10 { --rotation: 300deg; }
+.number-11 { --rotation: 330deg; }
+.number-12 { --rotation: 0deg; }
+
+.needle {
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+  transition: all 0.5s ease-in;
+  border-radius: 4px;
+}
+
+.needle.hour {
+  width: 4px;
+  height: 65px;  /* Reduced from 80px */
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.minute {
+  width: 3px;
+  height: 110px;
+  transform: translate(-50%, -100%) rotate(0deg);
+  background-color: var(--primary-color);
+}
+
+.needle.second {
+  width: 2px;
+  height: 130px;
+  transform: translate(-50%, -100%) rotate(0deg);
+  background-color: #e74c3c;
+}
+
+.center-point {
+  background-color: #e74c3c;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.center-point::after {
+  content: '';
+  background-color: var(--primary-color);
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.time {
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin: 5px 0;
+  color: var(--primary-color);
+  transition: all 0.5s ease-in;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.date {
+  color: #888;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.date .circle {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 24px;
+  transition: all 0.5s ease-in;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
