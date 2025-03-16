@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Feedback Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Feedback Form</h1>
+        <form id="feedback-form">
+            <div class="form-control">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" required>
+                <label>Name</label>
+            </div>
+
+            <div class="form-control">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" required>
+                <label>Email</label>
+            </div>
+
+            <div class="form-control">
+                <i class="fa-solid fa-star"></i>
+                <select required>
+                    <option value="" disabled selected></option>
+                    <option value="5">Excellent</option>
+                    <option value="4">Very Good</option>
+                    <option value="3">Good</option>
+                    <option value="2">Fair</option>
+                    <option value="1">Poor</option>
+                </select>
+                <label>Rating</label>
+            </div>
+
+            <div class="form-control">
+                <i class="fa-solid fa-comment"></i>
+                <textarea required></textarea>
+                <label>Your Feedback</label>
+            </div>
+
+            <button type="submit" class="btn">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
